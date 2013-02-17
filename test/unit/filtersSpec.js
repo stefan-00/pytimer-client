@@ -3,7 +3,7 @@
 /* jasmine specs for filters go here */
 
 describe('filter', function() {
-  beforeEach(module('racingApp.filters'));
+  beforeEach(module('pytimer.filters'));
 
   /*
   describe('interpolate', function() {
