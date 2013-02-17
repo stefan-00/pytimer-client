@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="pytimer">
+<head>
+  <meta charset="utf-8">
+  <title>PyTimer</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="css/app.css"/>
+
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+  <div ng-include src="'partials/navigation.html'"></div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div ng-include src="'partials/navigation-list.html'"></div>
+      <div class="span10">
+        <div ng-view></div>
+      </div>
+      <div class="span1">&nbsp;</div>
+    </div>
+    <hr>
+  </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  -->
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/angular/angular-mocks.js"></script>
+  <script src="lib/underscore.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services/services.js"></script>
+  <script src="js/filters/filters.js"></script>
+  <script src="js/directives/directives.js"></script>
+</body>
+</html>
