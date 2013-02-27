@@ -13,13 +13,14 @@
 
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
   <div ng-include src="'partials/navigation.html'"></div>
 
   <div class="container-fluid">
     <div class="row-fluid">
       <div ng-include src="'partials/navigation-list.html'"></div>
       <div class="span10">
+          <div>{{error}}</div>
         <div ng-view></div>
       </div>
       <div class="span1">&nbsp;</div>
@@ -38,5 +39,7 @@
   <script src="js/services/services.js"></script>
   <script src="js/filters/filters.js"></script>
   <script src="js/directives/directives.js"></script>
+  <script src="js/controllers/MainCtrl.js"></script>
+  <script src="js/controllers/TargetCtrl.js"></script>
 </body>
 </html>

@@ -16,8 +16,8 @@ angular.module('pytimer', includes)
 //        });
 
         $routeProvider.otherwise({
-            templateUrl: baseUrl + 'home.html'
-//            controller: 'HomeCntrl'
+            templateUrl: baseUrl + 'home.html',
+            controller: 'TargetCtrl'
         });
     }])
 ;

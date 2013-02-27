@@ -15,27 +15,23 @@ angular
             }
         })
 
-        .factory('ApplicationParametersService', function ($window) {
+        .factory('ApplicationParametersService', function () {
             return {
-                getClientRoot: function () {
-                    return $window.kambiNS.clientRoot;
-                },
-                getBaseUrl: function () {
-                    return $window.kambiNS.apiBaseUrl + ':' + $window.kambiNS.apiPort + "/";
-                },
                 getApiUrl: function () {
-                    return $window.kambiNS.apiBaseUrl + ':' + $window.kambiNS.apiPort + $window.kambiNS.apiLocation;
+                    return 'http://bubba:8181/';
                 }
             }
         })
 
-        .factory('PytimerService', function ($http, ApplicationParametersService) {
-            return {
+        .factory('PytimerService', function ($http, ApplicationParametersService, $resource) {
 
-                update: function (id, data, success, error) {
-                    return $http.post(ApplicationParametersService.getApiUrl() + 'race/' + id + '/updateOdds', data, {
-                        withCredentials: true
-                    }).success(success).error(error);
+        var targets = $resource('http://bubba\\:8181/targets', {callback: 'JSON_CALLBACK'},
+            {get:{method:'JSONP', isArray: true}});
+         return {
+
+                getTargets: function () {
+                    return targets.get();
+                    //return $http.get(ApplicationParametersService.getApiUrl() + 'targets');
                 }
 
             }
