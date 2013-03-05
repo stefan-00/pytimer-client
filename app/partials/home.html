@@ -1,3 +1,71 @@
-<p ng-repeat="target in targets">
-    {{target.id}}
-</p>
+<div>
+    <accordion>
+        <accordion-group heading="{{target.id}}" ng-repeat="target in targets">
+            <div ng-repeat="interval in target.config.intervals">
+                {{interval.id}}
+                <table>
+                    <thead>
+                    <tr>
+                        <th>On/Off</th>
+                        <th>Type</th>
+                        <th>Config</th>
+                        <th>Random</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="mode in onoff">
+                        <td>{{mode.name}}</td>
+                        <td><select ng-model="interval[mode.id].type" ng-options="type.id as type.name for type in types"></select></td>
+                        <td>
+                            <select ng-show="interval[mode.id].type == 'sun'" ng-model="interval[mode.id].event" ng-options="event.id as event.name for event in sunEvents"></select>
+                            <input ng-show="interval[mode.id].type == 'timer'" ng-model="interval[mode.id].time" />
+                        </td>
+
+                        <td><input ng-model="interval[mode.id].random" /></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>
+
+
+<!--status": 1,-->
+<!--"config": {-->
+<!--"intervals": [-->
+<!--{-->
+<!--"on": {-->
+<!--"deviation": -15,-->
+<!--"random": 30,-->
+<!--"type": "sun",-->
+<!--"event": "sunset"-->
+<!--},-->
+<!--"off": {-->
+<!--"random": 30,-->
+<!--"type": "timer",-->
+<!--"time": "22:00"-->
+<!--},-->
+<!--"id": "skymning"-->
+<!--},-->
+<!--{-->
+<!--"on": {-->
+<!--"random": 15,-->
+<!--"type": "timer",-->
+<!--"time": "06:00"-->
+<!--},-->
+<!--"off": {-->
+<!--"deviation": 0,-->
+<!--"random": 15,-->
+<!--"type": "sun",-->
+<!--"event": "sunrise"-->
+<!--},-->
+<!--"id": "gryning"-->
+<!--}-->
+<!--],-->
+<!--"command": "/usr/local/bin/nexa B 2",-->
+<!--"id": "Allrum"-->
+<!--},-->
+<!--"id": "Allrum"-->
+
+<!--},-->

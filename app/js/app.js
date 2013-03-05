@@ -1,6 +1,6 @@
 'use strict';
 
-var includes = ['pytimer.filters', 'pytimer.services', 'pytimer.directives'];
+var includes = ['pytimer.filters', 'pytimer.services', 'pytimer.directives', 'ui.bootstrap'];
 
 
 // Declare app level module which depends on filters, and services
